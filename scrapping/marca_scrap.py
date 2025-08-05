@@ -5,7 +5,7 @@ import sqlite3
 
 url = "https://www.marca.com"
 
-def scrapNews():
+def scrapMarca():
     response = requests.get(url)
 
     # 2. Comprobar que la petición fue exitosa
@@ -48,4 +48,4 @@ def scrapNews():
         print(f"Error al obtener la página: {response.status_code}")
 
 if __name__=="__main__":
-    scrapNews()
+    scrapMarca()
