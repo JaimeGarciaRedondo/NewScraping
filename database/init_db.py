@@ -8,10 +8,8 @@ def crear_db():
             CREATE TABLE IF NOT EXISTS noticias (
                 id INTEGER PRIMARY KEY AUTOINCREMENT,
                 titulo TEXT,
-                resumen TEXT,
                 url TEXT UNIQUE,
                 imagen TEXT,
-                fecha TEXT,
                 fuente TEXT,
                 categoria TEXT
             )
