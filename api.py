@@ -41,9 +41,26 @@ def obtener_noticias():
     ]
 
 
+def obtener_noticias_por_categoria(categoria: str):
+    conn = sqlite3.connect("database/noticias.db")
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT * FROM noticias WHERE categoria = ?", (categoria,))
+    resultados = cursor.fetchall()
+
+    conn.close()
+    return resultados
+
+
 @app.get("/noticias")
 def listar_noticias():
     return obtener_noticias()
+
+@app.get("/noticias/{categoria}")
+def listar_noticias_por_categoria(categoria: str):
+    # Llama a la función que obtiene las noticias filtradas por categoría
+    noticias = obtener_noticias_por_categoria(categoria)
+    return {"categoria": categoria, "noticias": noticias}
 
 @app.get("/noticias/{fuente}")
 def listar_noticias_por_fuente(fuente: str):

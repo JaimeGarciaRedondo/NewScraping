@@ -38,7 +38,7 @@ def scrapMarca():
 
             cursor.execute(
                 'INSERT OR IGNORE INTO noticias (titulo, url, imagen, fuente, categoria) VALUES (?, ?, ?, ?, ?)',
-                (title, href, img, 'Marca', 'sports')
+                (title, href, img, 'Marca', 'Deportes')
             )
 
         conn.commit()
