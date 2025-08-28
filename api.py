@@ -7,8 +7,10 @@ from fastapi.middleware.cors import CORSMiddleware
 
 # === Tus imports de scraping ===
 from scrapping.as_scrap import scrapAs
+from scrapping.elpais_scrap import scrapPais
 from scrapping.marca_scrap import scrapMarca
 from database.consultas import borrar, consulta
+from scrapping.abc_scrap import scrapAbc
 
 # ==== Configuración API ====
 app = FastAPI(title="API de Noticias")
@@ -74,6 +76,8 @@ def scrapAll():
     borrar()
     scrapMarca()
     scrapAs()
+    scrapAbc()
+    scrapPais()
     #consulta()
     print("✅ Scraping finalizado")
 

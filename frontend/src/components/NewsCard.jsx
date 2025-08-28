@@ -4,16 +4,16 @@ export default function NewsCard({ titulo, url, imagen, fuente, categoria }) {
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 h-72 w-full"
+      className="block bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 h-80 w-full"
     >
       {imagen ? (
         <img
           src={imagen}
           alt={titulo}
-          className="w-full h-36 object-cover"
+          className="w-full h-52 object-cover"
         />
       ) : (
-        <div className="w-full h-36 bg-gray-200 flex items-center justify-center text-red-700 text-xs">
+        <div className="w-full h-52 bg-gray-200 flex items-center justify-center text-red-700 text-xs">
           📄 Sin imagen
         </div>
       )}
