@@ -24,7 +24,7 @@ export default function Navbar() {
 
           <Link
             to="/noticias"
-            className="text-white hover:text-blue-200 font-medium px-4 py-2 rounded"
+            className="text-white bg-red-700 hover:border-blue-600 hover:bg-red-400 hover:text-gray-200 font-medium px-4 py-2 rounded"
           >
             Noticias
           </Link>
