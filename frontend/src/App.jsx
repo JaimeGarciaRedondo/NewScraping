@@ -3,6 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import NewsLayout from "./components/NewsLayout";
 import CategoryPage from "./components/CategoryPage";
+import AllNewsPage from "./components/allNewsPage";
 
 export default function App() {
   const [noticias, setNoticias] = useState([]);
@@ -39,6 +40,11 @@ export default function App() {
           <Route
             path="/categoria/:categoria"
             element={<CategoryPage allNoticias={noticias} />}
+          />
+
+          <Route
+            path="/noticias"
+            element={<AllNewsPage allNoticias={noticias} />}
           />
         </Routes>
       </div>
