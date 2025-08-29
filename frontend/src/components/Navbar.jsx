@@ -29,12 +29,6 @@ export default function Navbar() {
             Noticias
           </Link>
 
-          <Link
-            to="/contacto"
-            className="text-white hover:text-blue-200 font-medium px-4 py-2 rounded"
-          >
-            Contacto
-          </Link>
           <span className="flex-1"></span>
         </div>
       </div>
