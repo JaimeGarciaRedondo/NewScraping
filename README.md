@@ -1,6 +1,6 @@
 <h1 align="center"> NewScraping </h1>
 <p align="center">
-  <img align="center" width="128" height="128" alt="NewScraping Icon" src="https://github.com/user-attachments/assets/cae2a255-3551-4000-8d0f-72828e54b093" />
+  <img align="center" width="128" height="128" alt="NewScraping Icon" src="./frontend/public/img/icon_NS.png" />
 </p>
 
 <p align="center">
@@ -11,7 +11,11 @@
 ## Introduction
 Website that gathers sports and current news from major Spanish newspapers using web scraping.
 
-## Installation
+<p align="center">
+  <img align="center" width="1024" height="1024" alt="NewScraping Homepage" src="./newScraping_Homepage.png" />
+</p>
+
+## Installation 🛠️
 
 First, clone the repository and run the back-end.
 
@@ -44,17 +48,17 @@ npm install
 
 Create a `.env` file and start the front-end.
 ```bash
-echo "VITE_API_URL=http://localhost:8000" > .env
+echo VITE_API_URL=http://localhost:8000 > .env
 npm run dev
 ```
 
-## Technologies Used
+## Technologies Used ✅
 - Python
 - JavaScript
 - CSS
 - HTML
 
-## Contributors
+## Contributors 👤
 [![Jaime Garcia](https://github.com/JaimeGarciaRedondo.png?size=10)](https://github.com/JaimeGarciaRedondo)
 
 ## License
