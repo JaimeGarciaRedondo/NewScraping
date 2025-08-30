@@ -4,6 +4,7 @@ from apscheduler.schedulers.background import BackgroundScheduler
 import sqlite3
 import uvicorn
 from fastapi.middleware.cors import CORSMiddleware
+from database.init_db import crear_db
 
 # === Tus imports de scraping ===
 from scrapping.as_scrap import scrapAs
@@ -23,7 +24,7 @@ app.add_middleware(
 )
 
 def obtener_noticias():
-    conn = sqlite3.connect("../database/noticias.db")
+    conn = sqlite3.connect("database/noticias.db")
     cursor = conn.cursor()
     cursor.execute("SELECT id, titulo, url, imagen, fuente, categoria FROM noticias")
     datos = cursor.fetchall()
@@ -43,7 +44,7 @@ def obtener_noticias():
 
 
 def obtener_noticias_por_categoria(categoria: str):
-    conn = sqlite3.connect("../database/noticias.db")
+    conn = sqlite3.connect("database/noticias.db")
     cursor = conn.cursor()
 
     cursor.execute("SELECT * FROM noticias WHERE categoria = ?", (categoria,))
@@ -71,7 +72,7 @@ def listar_noticias_por_fuente(fuente: str):
 scheduler = BackgroundScheduler()
 
 def borrar():
-    conn = sqlite3.connect("../database/noticias.db")
+    conn = sqlite3.connect("database/noticias.db")
     cursor = conn.cursor()
 
     cursor.execute("DELETE FROM noticias")
@@ -94,6 +95,7 @@ scheduler.add_job(scrapAll, 'interval', minutes=20)
 if __name__ == "__main__":
     # Arrancar scraping automático
     scheduler.start()
+    crear_db()
     scrapAll()  # primer scrapeo al arrancar
 
     # Arrancar API (bloqueante)

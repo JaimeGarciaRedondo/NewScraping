@@ -17,7 +17,7 @@ def scrapMarca():
         # En este caso, los textos de las citas
         links = soup.find_all('div', class_='ue-c-cover-content__body')
 
-        conn = sqlite3.connect("../database/noticias.db")
+        conn = sqlite3.connect("database/noticias.db")
         cursor = conn.cursor()
 
         for l in links:

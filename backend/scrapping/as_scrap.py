@@ -17,7 +17,7 @@ def scrapAs():
         # En este caso, los textos de las citas
         links = soup.find_all('article', class_='s s--v')
 
-        conn = sqlite3.connect("../database/noticias.db")
+        conn = sqlite3.connect("database/noticias.db")
         cursor = conn.cursor()
 
         for l in links:
