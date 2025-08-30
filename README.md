@@ -11,3 +11,51 @@
 ## Introduction
 Website that gathers sports and current news from major Spanish newspapers using web scraping.
 
+## Installation
+
+First, clone the repository and run the back-end.
+
+```bash
+git clone https://github.com/JaimeGarciaRedondo/NewScraping.git
+cd NewScraping/backend
+```
+
+Then, create a venv and install the `requirements.txt`.
+
+```bash
+python -m venv venv
+source venv/bin/activate   # on Linux/Mac
+venv\Scripts\activate      # on Windows
+pip install -r requirements.txt
+```
+
+And start the API.
+
+```bash
+python api.py
+```
+
+Now, let's start the front-end and install its npm dependencies.
+
+```bash
+cd ../frontend
+npm install
+```
+
+Create a `.env` file and start the front-end.
+```bash
+echo "VITE_API_URL=http://localhost:8000" > .env
+npm run dev
+```
+
+## Technologies Used
+- Python
+- JavaScript
+- CSS
+- HTML
+
+## Contributors
+[![Jaime Garcia](https://github.com/JaimeGarciaRedondo.png?size=10)](https://github.com/JaimeGarciaRedondo)
+
+## License
+NewScraping is [MIT Licensed](LICENSE).
