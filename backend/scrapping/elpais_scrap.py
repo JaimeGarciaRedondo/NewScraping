@@ -14,7 +14,7 @@ def scrapPais():
         links = soup.find_all('article', class_='c')
 
         # Ruta absoluta segura a la base de datos
-        conn = sqlite3.connect(os.path.abspath("database/noticias.db"))
+        conn = sqlite3.connect(os.path.abspath("../database/noticias.db"))
         cursor = conn.cursor()
 
         for l in links:
@@ -43,10 +43,10 @@ def scrapPais():
                 (title, href, img, 'El País', 'Actualidad')
             )
 
-            print(f"Título: {title}")
-            print(f"Enlace: {href}")
-            print(f"Img: {img}")
-            print('---')
+            #print(f"Título: {title}")
+            #print(f"Enlace: {href}")
+            #print(f"Img: {img}")
+            #print('---')
 
         conn.commit()
         conn.close()

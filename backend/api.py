@@ -23,7 +23,7 @@ app.add_middleware(
 )
 
 def obtener_noticias():
-    conn = sqlite3.connect("database/noticias.db")
+    conn = sqlite3.connect("../database/noticias.db")
     cursor = conn.cursor()
     cursor.execute("SELECT id, titulo, url, imagen, fuente, categoria FROM noticias")
     datos = cursor.fetchall()
@@ -43,7 +43,7 @@ def obtener_noticias():
 
 
 def obtener_noticias_por_categoria(categoria: str):
-    conn = sqlite3.connect("database/noticias.db")
+    conn = sqlite3.connect("../database/noticias.db")
     cursor = conn.cursor()
 
     cursor.execute("SELECT * FROM noticias WHERE categoria = ?", (categoria,))
@@ -71,7 +71,7 @@ def listar_noticias_por_fuente(fuente: str):
 scheduler = BackgroundScheduler()
 
 def borrar():
-    conn = sqlite3.connect("database/noticias.db")
+    conn = sqlite3.connect("../database/noticias.db")
     cursor = conn.cursor()
 
     cursor.execute("DELETE FROM noticias")

@@ -14,7 +14,7 @@ def scrapAbc():
         links = soup.find_all('div', class_='voc-article-container')
 
         # Ruta absoluta segura a la base de datos
-        conn = sqlite3.connect(os.path.abspath("database/noticias.db"))
+        conn = sqlite3.connect(os.path.abspath("../database/noticias.db"))
         cursor = conn.cursor()
 
         for l in links:
