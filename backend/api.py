@@ -9,7 +9,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from scrapping.as_scrap import scrapAs
 from scrapping.elpais_scrap import scrapPais
 from scrapping.marca_scrap import scrapMarca
-from database.consultas import borrar, consulta
 from scrapping.abc_scrap import scrapAbc
 
 # ==== Configuración API ====
@@ -71,6 +70,15 @@ def listar_noticias_por_fuente(fuente: str):
 # ==== Scheduler y Scraping ====
 scheduler = BackgroundScheduler()
 
+def borrar():
+    conn = sqlite3.connect("database/noticias.db")
+    cursor = conn.cursor()
+
+    cursor.execute("DELETE FROM noticias")
+    cursor.execute("DELETE FROM sqlite_sequence WHERE name='noticias'")
+    conn.commit()
+    conn.close()
+
 def scrapAll():
     print("⏳ Iniciando scraping...")
     borrar()
@@ -78,10 +86,9 @@ def scrapAll():
     scrapAs()
     scrapAbc()
     scrapPais()
-    #consulta()
     print("✅ Scraping finalizado")
 
-scheduler.add_job(scrapAll, 'interval', minutes=5)
+scheduler.add_job(scrapAll, 'interval', minutes=20)
 
 # ==== Ejecución ====
 if __name__ == "__main__":
